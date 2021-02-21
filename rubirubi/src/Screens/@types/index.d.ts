@@ -1,6 +1,4 @@
-type LoginNaviParamList = {
-  Login: undefined;
-};
+
 
 type MovieNaviParamList = {
   MovieHome: undefined;

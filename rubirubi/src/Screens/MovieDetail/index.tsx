@@ -4,7 +4,6 @@ import {RouteProp} from '@react-navigation/native';
 import Modal from "react-native-modal";
 import Button from '~/Components/Button';
 import BigCatalog from '~/Screens/MovieDetail/BigCatalog';
-import CastList from './CastList';
 import ScreenShotList from './ScreenShotList';
 
 const Container = Styled.ScrollView`
@@ -23,6 +22,11 @@ const LabelGenres = Styled.Text`
   color: #FFFFFF;
   padding: 0 0 0 4px;
 `;
+const LabelYear = Styled.Text`
+  color: #d35353;
+  font-size: 13px;
+  padding: 1px 0 0 14px;
+`;
 
 const ContainerTitle = Styled.Text`
   font-size: 21px;
@@ -38,7 +42,7 @@ const Description = Styled.Text`
 const SubInfoContainer = Styled.View``;
 const InfoContainer = Styled.View`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 16px;
 `;
 
@@ -97,6 +101,7 @@ const MovieDetail = ({route}: Props) => {
         <LabelTitle>{data.title}</LabelTitle>
         <InfoContainer>
           <LabelGenres>{data.genres}</LabelGenres>
+          <LabelYear>{data.year}년</LabelYear>
         </InfoContainer>
       </SubInfoContainer>
       <DescriptionContainer>
@@ -125,15 +130,6 @@ const MovieDetail = ({route}: Props) => {
       />
         </StyledModalContainer>
       </Modal>
-
-      {/* {data.cast && <CastList cast={data.cast} />}
-      <ScreenShotList
-        images={[
-          data.large_screenshot_image1,
-          data.large_screenshot_image2,
-          data.large_screenshot_image3,
-        ]}
-      /> */}
     </Container>
   ) : (
     <Loading>```로딩중```</Loading>
